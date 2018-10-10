@@ -1,15 +1,18 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
+#include <fstream>
 #include "etudiant.h"
 
 using namespace std;
 
 
 
-int main()
-{
+int main(){
+
 vector <etudiant> etudiants;
+
+ofstream f_notes;
 
 int compteur;
 
@@ -25,6 +28,8 @@ if (compteur> 5){
 
 } else {
 
+f_notes.open("notes.txt");
+
 	for (int i=0 ; i < compteur; i++){
 		double n;
 		string na;
@@ -33,7 +38,9 @@ if (compteur> 5){
 		cout<< "Quelle note voulez vous attribuer à " << na << " ?" << endl;
 		cin >> n;
 		etudiants.push_back(etudiant(na, n));
-		} 
+		f_notes << na << "		"<< n << endl;
+		}
+f_notes.close(); 
 	}
 string x = "o";
 string name;
@@ -58,4 +65,10 @@ cin >> x;
 	}
 	}
 }
+
+// gérer la persistance des notes
+	ofstream fichier_notes;
+	fichier_notes.open("file.txt");
+	fichier_notes << "EPSI";
+	fichier_notes.close();
 }

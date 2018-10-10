@@ -1,0 +1,4 @@
+Paul		20
+Maxime		15
+Aurelien	12
+Ganesh		0
